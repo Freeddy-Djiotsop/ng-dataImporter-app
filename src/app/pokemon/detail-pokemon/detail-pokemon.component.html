@@ -1,0 +1,45 @@
+<h1 *ngIf="pokemon" class="center">You're welcome I'm {{pokemon.name}} </h1>
+<div *ngIf="pokemon" class="row">
+    <div class="col s12 m8 offset-m2" >
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img [src]="pokemon.picture">
+      </div>
+      <div class="card-stacked" >
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><strong>{{ pokemon.name }}</strong></td>
+              </tr>
+              <tr>
+                <td>Life</td>
+                <td><strong>{{ pokemon.hp }}</strong></td>
+              </tr>
+              <tr>
+                <td>Power</td>
+                <td><strong>{{ pokemon.cp }}</strong></td>
+              </tr>
+              <tr>
+                <td>Types</td>
+                <td>
+                  <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{ type }}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Created at</td>
+                <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a (click)="goBackToPokemons()" class="teal btn">Retour</a>
+          <a (click)="editThisPokemon(pokemon)" class="green btn" style="margin-left: 40px;">Edit</a>
+          <a (click)="deleteThisPokemon(pokemon)" class="red btn" style="margin-left: 40px;">Delete</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

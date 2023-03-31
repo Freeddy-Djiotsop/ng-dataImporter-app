@@ -1,0 +1,26 @@
+<app-loader *ngIf="!pokemonArray" class="center"></app-loader>
+<h1 *ngIf="pokemonArray" class="center">List of Pokemon</h1>
+<div *ngIf="pokemonArray" class="container">
+    <div class="row">
+        <app-search-pokemon class="center"></app-search-pokemon>
+        <div class="col m4 s6" *ngFor="let pokemon of pokemonArray" (click)="showOnePokemon(pokemon)">
+            <div class="card horizontal" pokemonBorderCard>
+                <div class="card-image">
+                    <img src="{{pokemon.picture}}" alt="{{pokemon.name}}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p> {{pokemon.name}} </p>
+                        <small><p> {{pokemon.created | date:'dd/MM/YYYY'}} </p></small>
+                        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
+                            {{type}}
+                        </span>
+                    </div>
+                    <div class="card-action">
+                        <a href="/pokemon/{{pokemon.id}}">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
