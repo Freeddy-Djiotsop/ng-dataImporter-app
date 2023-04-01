@@ -13,7 +13,6 @@ import { PokemonService } from '../pokemon.service';
       [onPokemons]="true"
       class="m-5"
     ></app-pokemon-card>
-
   `,
   styles: [
   ]

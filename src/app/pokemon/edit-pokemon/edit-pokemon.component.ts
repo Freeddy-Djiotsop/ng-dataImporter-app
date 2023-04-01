@@ -9,7 +9,7 @@ import { PokemonService } from '../pokemon.service';
     <div *ngIf="!pokemon" class="d-flex justify-content-center align-items-center vh-100">
       <h2>{{errorMsg}}</h2>
     </div>
-    <app-pokemon-form *ngIf="pokemon" [pokemon]="pokemon" [msg]="msg"></app-pokemon-form>
+    <app-pokemon-forms *ngIf="pokemon" [pokemon]="pokemon" [msg]="msg"></app-pokemon-forms>
 
   `,
   styles: [

@@ -1,6 +1,7 @@
+<app-pokemon-navbar></app-pokemon-navbar>
 <app-loader *ngIf="!pokemon" class="text-center"></app-loader>
 <div class="text-center pt-3"><h2> {{msg}} </h2></div>
-<div *ngIf="!isAddForm && pokemon">
+<div *ngIf="!isAddForm && pokemon" class="text-center">
   <img [src]="pokemon.picture" alt="{{pokemon.name}}" >
 </div>
 <div class="container mt-3">
