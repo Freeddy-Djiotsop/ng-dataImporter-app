@@ -1,3 +1,4 @@
+<app-pokemon-navbar></app-pokemon-navbar>
 <app-loader *ngIf="!pokemonArray" class="text-center"></app-loader>
 <div class="text-center mb-4">
     <h1> {{msg}} </h1>
@@ -22,10 +23,9 @@
                         </div>
                     </div>
                     </div>
-                    <div class="row pb-2">
-                        <div class="col-xl {{type | pokemonTypeColor}}"
+                    <div class="row pb-2 ms-2">
+                        <div class="col-sm-4 me-2 {{type | pokemonTypeColor}}"
                             *ngFor="let type of pokemon.types"
-                            style="margin-right: 2px;"
                         >{{type}}</div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { Pokemon } from '../pokemon';
 @Component({
   selector: 'app-add-pokemon',
   template: `
-  <app-pokemon-form [pokemon]="pokemon" [msg]="msg"></app-pokemon-form>
+    <app-pokemon-form [pokemon]="pokemon" [msg]="msg"></app-pokemon-form>
 `,
   styles: [
   ]

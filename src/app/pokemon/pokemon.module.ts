@@ -13,7 +13,8 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { LoaderComponent } from './loader/loader.component';
-import { PokemonCardComponent } from './shared/pokemon-card/pokemon-card.component'
+import { PokemonCardComponent } from './shared/pokemon-card/pokemon-card.component';
+import { PokemonNavbarComponent } from './shared/pokemon-navbar/pokemon-navbar.component'
 
 
   
@@ -37,7 +38,8 @@ import { PokemonCardComponent } from './shared/pokemon-card/pokemon-card.compone
     AddPokemonComponent,
     SearchPokemonComponent,
     LoaderComponent,
-    PokemonCardComponent
+    PokemonCardComponent,
+    PokemonNavbarComponent
   ],
   imports: [
     CommonModule,
