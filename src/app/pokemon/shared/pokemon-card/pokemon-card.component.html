@@ -6,13 +6,13 @@
     <app-search-pokemon *ngIf="onPokemons" class="text-center"></app-search-pokemon>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-sm-4" *ngFor="let pokemon of pokemonArray" (click)="showOnePokemon(pokemon)">
+            <div class="col-xl-4" *ngFor="let pokemon of pokemonArray" (click)="showOnePokemon(pokemon)">
                 <div class="card mb-3" [pokemonBorderCard]="color">
                     <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-xl-7">
                         <img [src]="pokemon.picture" alt=" {{pokemon.name}} " class="img-fluid">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-xl-5">
                         <div class="card-body mx-auto d-block">
                             <h5 class="card-title"> {{pokemon.name}} </h5>
                             <p class="card-text"> {{pokemon.created | date:'dd/MM/YYYY'}} </p>
@@ -23,8 +23,7 @@
                     </div>
                     </div>
                     <div class="row pb-2">
-                        <div class="col-sm-3 btn green">Power:</div>
-                        <div class="col-sm-3 {{type | pokemonTypeColor}}"
+                        <div class="col-xl {{type | pokemonTypeColor}}"
                             *ngFor="let type of pokemon.types"
                             style="margin-right: 2px;"
                         >{{type}}</div>
