@@ -7,13 +7,15 @@ export class Pokemon {
   picture: string;
   types: string[];
   created: Date;
+  modifiedAt: Date|undefined;
 
   constructor(
-    name: string = 'Please enter a name',
+    name: string = '',
     hp: number = 100,
     cp: number = 10,
     picture: string = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/xxx.png",
-    types: string[] = ['Normal']
+    types: string[] = ['Normal'],
+    modifiedAt: Date|undefined = undefined
   ) {
     //id: number;
     this.hp = hp;
@@ -22,5 +24,6 @@ export class Pokemon {
     this.picture = picture;
     this.types = types;
     this.created = new Date();
+    this.modifiedAt = modifiedAt;
   }
 }

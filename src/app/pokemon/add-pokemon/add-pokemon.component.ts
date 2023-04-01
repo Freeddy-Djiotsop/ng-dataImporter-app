@@ -4,18 +4,17 @@ import { Pokemon } from '../pokemon';
 @Component({
   selector: 'app-add-pokemon',
   template: `
-  <h2 class="center" style="font-weight: bold;"> You can add one Pokemon </h2>
-
-  <app-pokemon-form [pokemon]="pokemon"></app-pokemon-form>
-
+  <app-pokemon-form [pokemon]="pokemon" [msg]="msg"></app-pokemon-form>
 `,
   styles: [
   ]
 })
 export class AddPokemonComponent implements OnInit {
   pokemon: Pokemon;
+  msg: string;
 
   ngOnInit(): void {
       this.pokemon = new Pokemon();
+      this.msg = "You can add one Pokemon";
   }
 }

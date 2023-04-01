@@ -1,15 +1,22 @@
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper teal">
-        <a href="#" class="brand-logo">DDF</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/" class="btn">Home</a></li>
-            <li><a href="/pokemons" class="btn">Pokemons</a></li>
-            <li><a href="/pokemon/add" class="green btn">Add Pokemon</a></li>
-        </ul>
+<div class="mb-5">
+    <nav class="navbar fixed-top navbar-expand-lg" style="background-color: green;">
+        <a class="navbar-brand btn" (click)="goHome()">DDF</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item ms-auto">
+                <a class="nav-link btn" (click)="goToList()">Pokemons</a>
+            </li>
+            <li class="nav-item ms-auto">
+                <a class="nav-link btn" (click)="goToAdd()">Add Pokemon</a>
+            </li>
+            </ul>
         </div>
     </nav>
 </div>
-
-
 <router-outlet></router-outlet>

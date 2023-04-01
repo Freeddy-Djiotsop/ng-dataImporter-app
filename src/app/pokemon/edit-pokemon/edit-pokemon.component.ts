@@ -6,15 +6,10 @@ import { PokemonService } from '../pokemon.service';
 @Component({
   selector: 'app-edit-pokemon',
   template: `
-    <h2 *ngIf="!pokemon" class="center" style="font-weight: bold;"> 
-      Pokemon not found, Sorry!
-    </h2>
-
-    <h2 *ngIf="pokemon" class="center" style="font-weight: bold;"> Edit {{pokemon.name}}! </h2>
-    <p class="center" *ngIf="pokemon">
-      <img [src]="pokemon.picture" alt="{{pokemon.name}}" >
-    </p>
-    <app-pokemon-form *ngIf="pokemon" [pokemon]="pokemon"></app-pokemon-form>
+    <div *ngIf="!pokemon" class="d-flex justify-content-center align-items-center vh-100">
+      <h2>{{errorMsg}}</h2>
+    </div>
+    <app-pokemon-form *ngIf="pokemon" [pokemon]="pokemon" [msg]="msg"></app-pokemon-form>
 
   `,
   styles: [
@@ -23,6 +18,8 @@ import { PokemonService } from '../pokemon.service';
 export class EditPokemonComponent implements OnInit {
 
   pokemon: Pokemon|undefined = undefined;
+  msg: string;
+  errorMsg: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,9 +27,11 @@ export class EditPokemonComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     const id: string|null = this.route.snapshot.paramMap.get('id');
+    this.errorMsg = "Pokemon not found, Sorry!";
 
     if(id) {
       this.pokemonService.loadOnePokemonById(+id).subscribe(p => this.pokemon = p);
+      this.msg = "Edit " + this.pokemon?.name;
     }
   }
 

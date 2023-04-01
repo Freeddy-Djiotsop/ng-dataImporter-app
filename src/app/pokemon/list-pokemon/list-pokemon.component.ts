@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { POKEMONARRAY } from '../mock-pokemon-array';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-list-pokemon',
-  templateUrl: './list-pokemon.component.html',
+  template: `
+    <app-pokemon-card 
+      *ngIf="pokemonArray"
+      [pokemonArray]="pokemonArray"
+      [msg]="msg"
+      [onPokemons]="true"
+      class="m-5"
+    ></app-pokemon-card>
+
+  `,
   styles: [
   ]
 })
 export class ListPokemonComponent implements OnInit {
   pokemonArray: Pokemon[];
+  msg: string;
 
-  constructor(private router: Router, private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    // this.pokemonService.loadPokemons().subscribe(list => 
-    //   this.pokemonArray = this.pokemonService.getRandomPokemonArray(list, POKEMONARRAY.length));
+    this.msg = "List of Pokemons";
     this.pokemonArray = this.pokemonService.getRandomPokemonArray(POKEMONARRAY.length)
-  }
-
-  showOnePokemon(p: Pokemon): void {
-    this.router.navigate(['/pokemon', p.id]);
   }
 }

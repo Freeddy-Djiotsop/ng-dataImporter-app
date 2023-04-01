@@ -7,8 +7,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 25,
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png",
-        types: ["Plante", "Poison"],
-        created: new Date()
+        types: ["Feu", "Psy"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 1,
@@ -16,8 +17,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 25,
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
-        types: ["Plante", "Poison"],
-        created: new Date()
+        types: ["Eau", "Vol"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 2,
@@ -25,8 +27,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 28,
         cp: 6,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
-        types: ["Feu"],
-        created: new Date()
+        types: ["Fée", "Poison"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 3,
@@ -34,8 +37,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 21,
         cp: 4,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
-        types: ["Eau"],
-        created: new Date()
+        types: ["Eau", "Plante"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 4,
@@ -44,7 +48,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 2,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
         types: ["Insecte", "Poison"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 5,
@@ -53,7 +58,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 7,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
         types: ["Normal", "Vol"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 6,
@@ -62,7 +68,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 6,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/019.png",
         types: ["Normal"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 7,
@@ -71,7 +78,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
         types: ["Normal", "Vol"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 8,
@@ -80,7 +88,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 4,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
         types: ["Poison"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 9,
@@ -89,7 +98,8 @@ export const POKEMONARRAY: Pokemon[] = [
         cp: 7,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
         types: ["Electrik"],
-        created: new Date()
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 10,
@@ -97,8 +107,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 19,
         cp: 3,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
-        types: ["Normal"],
-        created: new Date()
+        types: ["Normal", "Sauveur"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 11,
@@ -106,8 +117,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 25,
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
-        types: ["Fée"],
-        created: new Date()
+        types: ["Normal", "Feu"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 12,
@@ -115,8 +127,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 17,
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
-        types: ["Feu"],
-        created: new Date()
+        types: ["Combat"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 13,
@@ -124,8 +137,9 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 17,
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/015.png",
-        types: ["Feu"],
-        created: new Date()
+        types: ["Normal", "Sauveur"],
+        created: new Date(),
+        modifiedAt: undefined
     },
     {
         id: 14,
@@ -133,7 +147,8 @@ export const POKEMONARRAY: Pokemon[] = [
         hp: 17,
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/014.png",
-        types: ["Feu"],
-        created: new Date()
+        types: ["Plante", "Poison"],
+        created: new Date(),
+        modifiedAt: undefined
     }
 ];

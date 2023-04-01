@@ -1,0 +1,36 @@
+<app-loader *ngIf="!pokemonArray" class="text-center"></app-loader>
+<div class="text-center mb-4">
+    <h1> {{msg}} </h1>
+</div>
+<div *ngIf="pokemonArray">
+    <app-search-pokemon *ngIf="onPokemons" class="text-center"></app-search-pokemon>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let pokemon of pokemonArray" (click)="showOnePokemon(pokemon)">
+                <div class="card mb-3" [pokemonBorderCard]="color">
+                    <div class="row">
+                    <div class="col-md-7">
+                        <img [src]="pokemon.picture" alt=" {{pokemon.name}} " class="img-fluid">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body mx-auto d-block">
+                            <h5 class="card-title"> {{pokemon.name}} </h5>
+                            <p class="card-text"> {{pokemon.created | date:'dd/MM/YYYY'}} </p>
+                            <p class="card-text" *ngIf="pokemon.modifiedAt">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row pb-2">
+                        <div class="col-sm-3 btn green">Power:</div>
+                        <div class="col-sm-3 {{type | pokemonTypeColor}}"
+                            *ngFor="let type of pokemon.types"
+                            style="margin-right: 2px;"
+                        >{{type}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

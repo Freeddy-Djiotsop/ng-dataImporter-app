@@ -11,6 +11,7 @@ import { PokemonService } from '../pokemon.service';
 export class PokemonFormComponent implements OnInit {
 
   types: string[];
+  @Input() msg: string;
   @Input() pokemon: Pokemon;
   isAddForm: boolean;
 

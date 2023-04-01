@@ -1,5 +1,42 @@
-<h1 *ngIf="pokemon" class="center">You're welcome I'm {{pokemon.name}} </h1>
-<div *ngIf="pokemon" class="row">
+<div *ngIf="pokemon">
+  <h1 class="text-center pt-3">You're welcome I'm {{pokemon.name}} </h1>
+  <div class="d-flex vh-100 p-0 m-0" style="box-shadow: 2px 2px 10px;">
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+      <img src="{{pokemon.picture}}" alt="{{pokemon.name}}" 
+        style="width: 60%; height: 60%; object-fit: cover;
+          box-shadow: 1px 1px 100px;
+        "
+        >
+    </div>
+    <div class="flex-grow-0 d-flex justify-content-center align-items-center" style="width: 40%;">
+      <div class="d-block" style="width: 90%; box-shadow: 2px 2px 10px;">
+        <div class="mt-5 ms-5">
+          <p><span class="h4">Name: </span><span class="h3">{{pokemon.name}}</span></p>
+          <p><span class="h4">Created At: </span><span class="h4">{{pokemon.created | date}}</span></p>
+          <p><span class="h4">Life: </span><span class="h4">{{pokemon.hp}}</span></p>
+          <p><span class="h4">Power: </span><span class="h4">{{pokemon.cp}}</span></p>
+          <p *ngIf="pokemon.modifiedAt"><span class="h4">Last modified: </span><span class="h5">{{pokemon.created | date:'fullDate'}}</span></p>
+
+          <div class="row">
+            <div class="col-sm-3 {{type | pokemonTypeColor}}"
+                *ngFor="let type of pokemon.types"
+                style="margin-right: 2px;"
+            >{{type}}</div>
+        </div>
+        </div>
+        <div class="m-5">
+          <a (click)="goBackToPokemons()" class="btn btn-secondary">Retour</a>
+            <a (click)="editThisPokemon(pokemon)" class="btn btn-secondary" style="margin-left: 40px;">Edit</a>
+            <a (click)="deleteThisPokemon(pokemon)" class="btn btn-secondary" style="margin-left: 40px;">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<!-- <div *ngIf="pokemon" class="row">
     <div class="col s12 m8 offset-m2" >
     <div class="card horizontal hoverable">
       <div class="card-image">
@@ -35,11 +72,9 @@
           </table>
         </div>
         <div class="card-action">
-          <a (click)="goBackToPokemons()" class="teal btn">Retour</a>
-          <a (click)="editThisPokemon(pokemon)" class="green btn" style="margin-left: 40px;">Edit</a>
-          <a (click)="deleteThisPokemon(pokemon)" class="red btn" style="margin-left: 40px;">Delete</a>
+          
         </div>
       </div>
     </div>
     </div>
-</div>
+</div> -->

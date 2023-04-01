@@ -12,7 +12,8 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
-import { LoaderComponent } from './loader/loader.component'
+import { LoaderComponent } from './loader/loader.component';
+import { PokemonCardComponent } from './shared/pokemon-card/pokemon-card.component'
 
 
   
@@ -35,7 +36,8 @@ import { LoaderComponent } from './loader/loader.component'
     EditPokemonComponent,
     AddPokemonComponent,
     SearchPokemonComponent,
-    LoaderComponent
+    LoaderComponent,
+    PokemonCardComponent
   ],
   imports: [
     CommonModule,

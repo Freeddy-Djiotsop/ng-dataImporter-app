@@ -5,25 +5,31 @@ import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-home-pokemon',
-  templateUrl: './home-pokemon.component.html',
+  template: `
+    <app-loader *ngIf="!pokemonArray"></app-loader>
+    <app-pokemon-card 
+      *ngIf="pokemonArray" 
+      [pokemonArray]="pokemonArray" 
+      [msg]="msg"
+      [onPokemons]="false"
+      color="red"
+      class="m-5"
+    ></app-pokemon-card>
+  `,
   styles: [
   ]
 })
 export class HomePokemonComponent {
   
-  pokemonArray: Pokemon[] = [];
-  length: number = 6;
+  pokemonArray: Pokemon[];
+  length: number;
+  msg: string; 
 
-  constructor(private router: Router, private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void{
-    // this.pokemonService.loadPokemons().subscribe(l => {
-    //   this.pokemonArray = this.pokemonService.getRandomPokemonArray(l, this.length);
-    // });
+    this.length = 6;
+    this.msg = "You're Welcome";
     this.pokemonArray = this.pokemonService.getRandomPokemonArray(this.length);
-  }
-
-  showOnePokemon(p: Pokemon): void {
-    this.router.navigate(['/pokemon', p.id]);
   }
 }
