@@ -12,7 +12,7 @@
                     <div class="list-group">
                         <a 
                             (click)="goToDetail(pokemon)"
-                            *ngFor="let pokemon of pokemons$ | async"
+                            *ngFor="let pokemon of pokemons"
                             class="list-group-item"
                         >
                             {{pokemon.name}}

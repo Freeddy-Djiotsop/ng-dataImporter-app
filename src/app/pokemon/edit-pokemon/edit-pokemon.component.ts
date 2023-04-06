@@ -30,7 +30,7 @@ export class EditPokemonComponent implements OnInit {
     this.errorMsg = "Pokemon not found, Sorry!";
 
     if(id) {
-      this.pokemonService.loadOnePokemonById(+id).subscribe(p => this.pokemon = p);
+      this.pokemonService.loadOnePokemonById(+id).subscribe(apidata => this.pokemon = apidata.data[0]);
       this.msg = "Edit " + this.pokemon?.name;
     }
   }

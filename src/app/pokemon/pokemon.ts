@@ -27,3 +27,8 @@ export class Pokemon {
     this.modifiedAt = modifiedAt;
   }
 }
+
+export class APIdata {
+  msg: string; 
+  data: Pokemon[];
+};

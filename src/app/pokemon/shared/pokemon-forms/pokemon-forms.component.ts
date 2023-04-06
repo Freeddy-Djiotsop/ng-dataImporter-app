@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pokemon } from '../../pokemon';
+import { APIdata, Pokemon } from '../../pokemon';
 import { PokemonService } from '../../pokemon.service';
 
 @Component({
@@ -42,8 +42,9 @@ export class PokemonFormsComponent implements OnInit {
 
   onSubmit(): void {
     if(this.isAddForm) {
+      console.log(this.pokemon)
       this.pokemonService.addPokemon(this.pokemon)
-      .subscribe((pokemon: Pokemon) => this.router.navigate(['/pokemon', pokemon.id]));
+      .subscribe((apidata: APIdata) => this.router.navigate(['/peokemons', apidata.data[0].id]));
     } else {
       this.pokemonService.updatePokemon(this.pokemon)
       .subscribe(() => this.router.navigate(['/pokemon', this.pokemon.id]));

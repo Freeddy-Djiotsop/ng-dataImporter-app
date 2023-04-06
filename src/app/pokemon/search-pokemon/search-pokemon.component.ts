@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
-import { Pokemon } from '../pokemon';
+import { APIdata, Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -13,20 +13,20 @@ import { PokemonService } from '../pokemon.service';
 export class SearchPokemonComponent implements OnInit {
 
   searchTerms = new Subject<string>();
-  pokemons$: Observable<Pokemon[]>;
+  pokemons: Pokemon[];
 
   constructor(
     private router: Router,
     private pokemonService: PokemonService
   ) {}
   ngOnInit(): void {
-      this.pokemons$ = this.searchTerms.pipe(
+      this.searchTerms.pipe(
         debounceTime(400),//pr ke la recherche se fasse qnd il ya un intervall de 400ms attente
         distinctUntilChanged(),//pour empecher que xa fasse la mm recherche plusieurs fois
         // map((term) => this.pokemonService.searchPokemons(term)),
         switchMap((term) => this.pokemonService.searchPokemons(term)),
         //permet d'annuler la dernier requette en cours et faire cette nouvelle requette mais en plus ne renvoie pas un observable mais ce que comporte l'observable donc nos donné
-      );
+      ).subscribe(p => this.pokemons = p.data);
   }
 
   search(term: string){

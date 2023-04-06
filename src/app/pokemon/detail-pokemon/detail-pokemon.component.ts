@@ -23,7 +23,7 @@ export class DetailPokemonComponent implements OnInit {
     let id: string|null = this.route.snapshot.paramMap.get('id');
     
     if(id){
-      this.pokemonService.loadOnePokemonById(+id).subscribe(p => this.pokemon = p);
+      this.pokemonService.loadOnePokemonById(+id).subscribe(apidata => this.pokemon = apidata.data[0]);
     }
   }
 

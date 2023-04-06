@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { POKEMONARRAY } from './mock-pokemon-array';
-import { Pokemon } from './pokemon';
+import { APIdata, Pokemon } from './pokemon';
 
 @Injectable(
   //Si on ne veut pas que notre Service soit disponible ds tte l'app,
@@ -16,46 +16,46 @@ export class PokemonService {
   ) { }
   
 
-  private loadPokemons(): Observable<Pokemon[]> {
+  private loadPokemons(): Observable<APIdata> {
     return this.http.get<Pokemon[]>('api/pokemons').pipe(
       tap((pokemons) => {}),
       catchError((err) => this.handleError(err, []))
     );
   }
-  loadOnePokemonById(id: number): Observable<Pokemon> {
-    return this.http.get<Pokemon>('api/pokemons/' + id).pipe(
-      tap((pokemon) => this.log(pokemon)),
+  loadOnePokemonById(id: number): Observable<APIdata> {
+    return this.http.get<APIdata>('api/pokemons/' + id).pipe(
+      tap((apidata) => {}),
       catchError((err) => this.handleError(err, undefined))
     );
   }
 
-  searchPokemons(term: string): Observable<Pokemon[]> {
+  searchPokemons(term: string): Observable<APIdata> {
     if(term.length < 2){
-      return of([]);
+      return of(new APIdata());
     }
-    return this.http.get<Pokemon[]>('api/pokemons/?name=' + term).pipe(
+    return this.http.get<APIdata>('api/pokemons/?name=' + term).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleError(err, null))
     );
   }
 
-  addPokemon(pokemon: Pokemon): Observable<Pokemon> {
+  addPokemon(pokemon: Pokemon): Observable<APIdata> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json'})
     };
 
-    return this.http.post<Pokemon>('api/pokemons', pokemon, httpOptions).pipe(
+    return this.http.delete<APIdata>('api/pokemons/' + pokemon.id).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleError(err, null))
     );
   }
 
-  updatePokemon(pokemon: Pokemon): Observable<Pokemon|undefined> {
+  updatePokemon(pokemon: Pokemon): Observable<APIdata|undefined> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json'})
     };
-    pokemon.modifiedAt = new Date();
-    return this.http.put('api/pokemons', pokemon, httpOptions).pipe(
+    // pokemon.modifiedAt = new Date();
+    return this.http.put<APIdata>('api/pokemons', pokemon, httpOptions).pipe(
       tap((res) => this.log(res)),
       catchError((err) => this.handleError(err, null))
     );
@@ -80,14 +80,14 @@ export class PokemonService {
     const arr : number[] = [];
     const tmp: Pokemon[] = [];
 
-    this.loadPokemons().subscribe(list =>{
+    this.loadPokemons().subscribe(apidata =>{
       while (arr.length < length) {
-        let num = Math.floor(Math.random() * list.length);
+        let num = Math.floor(Math.random() * apidata.data.length);
         if (!arr.includes(num)) {
           arr.push(num);
         }
       }
-      arr.forEach( id => tmp.push( list[id] ));
+      arr.forEach( id => tmp.push( apidata.data[id] ));
     });    
 
     return tmp;
@@ -95,8 +95,8 @@ export class PokemonService {
 
   getTypes(): string[] {
     const types: string[] = [];
-    this.loadPokemons().subscribe(list => {
-      list.forEach(p => {
+    this.loadPokemons().subscribe(apidata => {
+      apidata.data.forEach(p => {
         p.types.forEach( t => {
           if(!types.includes(t)){
             types.push(t);
